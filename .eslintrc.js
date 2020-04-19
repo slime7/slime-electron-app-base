@@ -24,12 +24,8 @@ module.exports = {
         ],
       },
     ],
-    'import/no-extraneous-dependencies': [2, {
-      'ignore':
-        [
-          'electron',
-          'vue-cli-plugin-electron-builder/lib'
-        ]
+    'import/no-extraneous-dependencies': ['error', {
+      'devDependencies': true,
     }],
   },
   parserOptions: {

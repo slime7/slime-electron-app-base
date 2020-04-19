@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { remote } from 'electron';
 import WindowControls from '@/components/WindowControls.vue';
 import AppMain from '@/components/AppMain.vue';
 
@@ -35,17 +34,8 @@ export default {
         this.isMaximize = maximize;
       });
     },
-    onSelectGamePath() {
-      this.$ipcRenderer.on('select-game-path', (isSuccess) => {
-        const gamePath = remote.getGlobal('gamePath');
-        if (isSuccess && gamePath) {
-          this.gamePath = gamePath;
-        }
-      });
-    },
     onMounted() {
       this.onMaximizeStatusChange();
-      this.onSelectGamePath();
     },
     onUnmounted() {
       this.$ipcRenderer.detach('set-maximize-status');
