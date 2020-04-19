@@ -1,9 +1,9 @@
 <template>
   <div class="app-main">
-    <v-layout column fill-height>
+    <div class="d-flex flex-column fill-height">
       <div>header</div>
 
-      <v-flex shrink class="content">
+      <div class="flex content">
         <!-- eslint-disable -->
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet rutrum magna, eu pulvinar turpis commodo vitae. Curabitur pharetra justo venenatis velit commodo commodo. Integer id ex mollis, porttitor erat quis, vestibulum nunc. Nam tortor metus, egestas blandit venenatis et, varius sed metus. Sed vel lacus in purus efficitur dapibus et a leo. Sed bibendum urna magna, id vestibulum erat vehicula in. Donec in vulputate sem, a scelerisque justo. Aenean suscipit lacus a ante ultricies, non sagittis est consequat. Morbi consequat, neque at porttitor lacinia, augue lectus feugiat mauris, dapibus eleifend sapien neque eget neque. Sed egestas magna eu ante ornare, nec feugiat nisi sagittis.
@@ -32,10 +32,10 @@
         </pre>
         </div>
         <!-- eslint-enable -->
-      </v-flex>
+      </div>
 
       <div>footer</div>
-    </v-layout>
+    </div>
   </div>
 </template>
 
