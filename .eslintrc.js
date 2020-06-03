@@ -16,16 +16,20 @@ module.exports = {
     'no-param-reassign': [
       'error',
       {
-        'props': true,
-        'ignorePropertyModificationsFor': [
+        props: true,
+        ignorePropertyModificationsFor: [
           'state',
           'acc',
           'e',
         ],
       },
     ],
+    'import/extensions': ['error', 'always', {
+      js: 'never',
+      vue: 'never',
+    }],
     'import/no-extraneous-dependencies': ['error', {
-      'devDependencies': true,
+      devDependencies: true,
     }],
   },
   parserOptions: {

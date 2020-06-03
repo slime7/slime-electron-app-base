@@ -49,8 +49,6 @@
 </template>
 
 <script>
-import { remote } from 'electron';
-
 export default {
   name: 'WindowControls',
 
@@ -72,16 +70,16 @@ export default {
 
   methods: {
     appMinimize() {
-      remote.getCurrentWindow().minimize();
+      this.$ipcRenderer.send('app-minimize');
     },
     appUnmaximize() {
-      remote.getCurrentWindow().unmaximize();
+      this.$ipcRenderer.send('app-unmaximize');
     },
     appMaximize() {
-      remote.getCurrentWindow().maximize();
+      this.$ipcRenderer.send('app-maximize');
     },
     appClose() {
-      remote.getCurrentWindow().close();
+      this.$ipcRenderer.send('app-close');
     },
   },
 };

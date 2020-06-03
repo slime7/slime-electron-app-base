@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import ipcService from './plugins/ipcService';
-import App from './App.vue';
+import App from './App';
 import store from './store';
 import vuetify from './plugins/vuetify';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';

@@ -1,12 +1,36 @@
 import { dialog } from 'electron';
 
 const DEVTOOLS = 'devtools';
+const APP_MAXIMIZE = 'app-maximize';
+const APP_UNMAXIMIZE = 'app-unmaximize';
+const APP_MINIMIZE = 'app-minimize';
+const APP_CLOSE = 'app-close';
 const SELECT_GAME_PATH = 'select-game-path';
 
-const ipcHandler = ipc => ({
+const ipcHandler = (ipc) => ({
   [DEVTOOLS]() {
     if (global.win) {
       global.win.webContents.openDevTools();
+    }
+  },
+  [APP_MAXIMIZE]() {
+    if (global.win) {
+      global.win.maximize();
+    }
+  },
+  [APP_UNMAXIMIZE]() {
+    if (global.win) {
+      global.win.unmaximize();
+    }
+  },
+  [APP_MINIMIZE]() {
+    if (global.win) {
+      global.win.minimize();
+    }
+  },
+  [APP_CLOSE]() {
+    if (global.win) {
+      global.win.close();
     }
   },
   async [SELECT_GAME_PATH]() {

@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import WindowControls from '@/components/WindowControls.vue';
-import AppMain from '@/components/AppMain.vue';
+import WindowControls from '@/components/WindowControls';
+import AppMain from '@/components/AppMain';
 
 export default {
   name: 'app',
