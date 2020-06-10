@@ -1,11 +1,8 @@
-import { dialog } from 'electron';
-
 const DEVTOOLS = 'devtools';
 const APP_MAXIMIZE = 'app-maximize';
 const APP_UNMAXIMIZE = 'app-unmaximize';
 const APP_MINIMIZE = 'app-minimize';
 const APP_CLOSE = 'app-close';
-const SELECT_GAME_PATH = 'select-game-path';
 
 const ipcHandler = (ipc) => ({
   [DEVTOOLS]() {
@@ -30,21 +27,8 @@ const ipcHandler = (ipc) => ({
   },
   [APP_CLOSE]() {
     if (global.win) {
+      global.win.webContents.closeDevTools();
       global.win.close();
-    }
-  },
-  async [SELECT_GAME_PATH]() {
-    try {
-      const res = await dialog.showOpenDialog({
-        title: '选择游戏目录',
-        properties: ['openDirectory'],
-      });
-      if (!res.canceled) {
-        [global.gamePath] = res.filePaths;
-      }
-      ipc.sendToClient(SELECT_GAME_PATH, true);
-    } catch (err) {
-      ipc.sendToClient(SELECT_GAME_PATH, false);
     }
   },
   ping() {
