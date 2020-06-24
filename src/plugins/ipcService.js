@@ -23,6 +23,7 @@ ipcService.install = (Vue) => {
       if (idx > -1) {
         callbackCache.splice(idx, 1);
       } else {
+        // eslint-disable-next-line no-console
         console.error(`error type ${type}`);
       }
     },
