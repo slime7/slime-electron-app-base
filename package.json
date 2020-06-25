@@ -1,7 +1,11 @@
 {
   "name": "slime-electron-app-base",
   "version": "1.1.0",
-  "private": true,
+  "author": {
+    "name": "Slime7",
+    "email": "slime7@foxmail.com",
+    "url": "https://github.com/slime7"
+  },
   "scripts": {
     "serve": "vue-cli-service electron:serve",
     "build": "vue-cli-service electron:build",
@@ -35,5 +39,6 @@
     "vue-cli-plugin-electron-builder": "^2.0.0-rc.2",
     "vue-cli-plugin-vuetify": "^2.0.0",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "license": "MIT"
 }
