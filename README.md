@@ -1,33 +1,22 @@
-# wow-manager
+# slime-electron-app-base
+
+快速创建一个 electron 应用。
 
 ## Project setup
 ```
-npm install
+git clone https://github.com/slime7/slime-electron-app-base.git
+cd slime-electron-app-base
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
+yarn build
 ```
 
 ### Customize configuration
