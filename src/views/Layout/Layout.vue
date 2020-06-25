@@ -16,6 +16,11 @@
         </div>
       </div>
     </v-main>
+
+    <div class="components">
+      <toast/>
+      <simple-dialog/>
+    </div>
   </v-app>
 </template>
 
@@ -24,11 +29,15 @@ import WindowControls from '@/components/WindowControls';
 import AppBar from '@/views/Layout/AppBar';
 import Navigation from '@/views/Layout/Navigation';
 import { APP_VERSIONS } from '@/utils/ipcConstant';
+import Toast from '@/components/Toast';
+import SimpleDialog from '@/components/SimpleDialog';
 
 export default {
   name: 'Layout',
 
   components: {
+    SimpleDialog,
+    Toast,
     Navigation,
     WindowControls,
     AppBar,
@@ -77,6 +86,9 @@ export default {
       config[this.navigation.position] = true;
       return config;
     },
+    systemBarHeight() {
+      return this.$vuetify.application.bar;
+    },
   },
 
   methods: {
@@ -111,6 +123,10 @@ export default {
 </script>
 
 <style scoped>
+.system-bar {
+  z-index: 300;
+}
+
 #app-main-container > .scroll-content {
   min-height: 0;
   overflow-y: auto;

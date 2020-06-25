@@ -36,6 +36,8 @@
     "electron": "^9.0.3",
     "eslint": "^7.1.0",
     "eslint-plugin-vue": "^6.0.0",
+    "less": "^3.11.3",
+    "less-loader": "^6.1.2",
     "vue-cli-plugin-electron-builder": "^2.0.0-rc.2",
     "vue-cli-plugin-vuetify": "^2.0.0",
     "vue-template-compiler": "^2.6.10"

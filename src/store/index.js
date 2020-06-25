@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import toast from '@/store/moduleToast';
+import dialog from '@/store/moduleDialog';
 
 Vue.use(Vuex);
 
@@ -14,5 +16,9 @@ export default new Vuex.Store({
   },
   actions: {
 
+  },
+  modules: {
+    toast,
+    dialog,
   },
 });
