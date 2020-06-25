@@ -5,10 +5,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-
+    versions: null,
   },
   mutations: {
-
+    setVersions(state, versions) {
+      state.versions = versions;
+    },
   },
   actions: {
 

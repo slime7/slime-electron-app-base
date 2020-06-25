@@ -23,6 +23,7 @@
 import WindowControls from '@/components/WindowControls';
 import AppBar from '@/views/Layout/AppBar';
 import Navigation from '@/views/Layout/Navigation';
+import { APP_VERSIONS } from '@/utils/ipcConstant';
 
 export default {
   name: 'Layout',
@@ -84,11 +85,18 @@ export default {
         this.isMaximize = maximize;
       });
     },
+    onGetVersion() {
+      this.$ipcRenderer.on(APP_VERSIONS, (versions) => {
+        this.$store.commit('setVersions', versions);
+      });
+    },
     onMounted() {
       this.onMaximizeStatusChange();
+      this.onGetVersion();
     },
     onUnmounted() {
       this.$ipcRenderer.detach('set-maximize-status');
+      this.$ipcRenderer.detach(APP_VERSIONS);
     },
   },
 

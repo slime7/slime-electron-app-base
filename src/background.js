@@ -46,6 +46,7 @@ function createWindow() {
     height,
     maximize,
   } = global.store.get('window', defaultWin);
+  maximize = false;
   // Create the browser window.
   win = new BrowserWindow({
     x,

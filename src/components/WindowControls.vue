@@ -1,54 +1,53 @@
 <template>
   <div class="window-controls">
-    <v-layout fill-height>
-      <div class="window-control-btn" @click="appMinimize">
-        <v-layout align-center justify-center fill-height>
-          <svg width='11' height='11' viewBox='0 0 11 11' fill='none'
-               xmlns='http://www.w3.org/2000/svg'>
-            <path
-              :d='icon.minimize'
-              fill='#000'/>
-          </svg>
-        </v-layout>
+    <div class="d-flex fill-height">
+      <div class="window-control-btn d-flex align-center justify-center fill-height" @click="appMinimize">
+        <svg width='11' height='11' viewBox='0 0 11 11' fill='none'
+             xmlns='http://www.w3.org/2000/svg'>
+          <path
+            :d='icon.minimize'
+            fill='#000'/>
+        </svg>
       </div>
 
-      <div class="window-control-btn" v-show="isMaximize" @click="appUnmaximize">
-        <v-layout align-center justify-center fill-height>
-          <svg width='11' height='11' viewBox='0 0 11 11' fill='none'
-               xmlns='http://www.w3.org/2000/svg'>
-            <path
-              :d='icon.unmaximize'
-              fill='#000'/>
-          </svg>
-        </v-layout>
+      <div class="window-control-btn d-flex align-center justify-center fill-height" v-if="isMaximize" @click="appUnmaximize">
+        <svg width='11' height='11' viewBox='0 0 11 11' fill='none'
+             xmlns='http://www.w3.org/2000/svg'>
+          <path
+            :d='icon.unmaximize'
+            fill='#000'/>
+        </svg>
       </div>
 
-      <div class="window-control-btn" v-show="!isMaximize" @click="appMaximize">
-        <v-layout align-center justify-center fill-height>
-          <svg width='11' height='11' viewBox='0 0 11 11' fill='none'
-               xmlns='http://www.w3.org/2000/svg'>
-            <path
-              :d='icon.maximize'
-              fill='#000'/>
-          </svg>
-        </v-layout>
+      <div class="window-control-btn d-flex align-center justify-center fill-height" v-if="!isMaximize" @click="appMaximize">
+        <svg width='11' height='11' viewBox='0 0 11 11' fill='none'
+             xmlns='http://www.w3.org/2000/svg'>
+          <path
+            :d='icon.maximize'
+            fill='#000'/>
+        </svg>
       </div>
 
-      <div class="window-control-btn close" @click="appClose">
-        <v-layout align-center justify-center fill-height>
-          <svg width='11' height='11' viewBox='0 0 11 11' fill='none'
-               xmlns='http://www.w3.org/2000/svg'>
-            <path
-              :d='icon.close'
-              fill='#000'/>
-          </svg>
-        </v-layout>
+      <div class="window-control-btn close d-flex align-center justify-center fill-height" @click="appClose">
+        <svg width='11' height='11' viewBox='0 0 11 11' fill='none'
+             xmlns='http://www.w3.org/2000/svg'>
+          <path
+            :d='icon.close'
+            fill='#000'/>
+        </svg>
       </div>
-    </v-layout>
+    </div>
   </div>
 </template>
 
 <script>
+import {
+  APP_MINIMIZE,
+  APP_MAXIMIZE,
+  APP_UNMAXIMIZE,
+  APP_CLOSE,
+} from '@/utils/ipcConstant';
+
 export default {
   name: 'WindowControls',
 
@@ -70,38 +69,38 @@ export default {
 
   methods: {
     appMinimize() {
-      this.$ipcRenderer.send('app-minimize');
+      this.$ipcRenderer.send(APP_MINIMIZE);
     },
     appUnmaximize() {
-      this.$ipcRenderer.send('app-unmaximize');
+      this.$ipcRenderer.send(APP_UNMAXIMIZE);
     },
     appMaximize() {
-      this.$ipcRenderer.send('app-maximize');
+      this.$ipcRenderer.send(APP_MAXIMIZE);
     },
     appClose() {
-      this.$ipcRenderer.send('app-close');
+      this.$ipcRenderer.send(APP_CLOSE);
     },
   },
 };
 </script>
 
 <style scoped>
-  .window-control-btn {
-    width: 40px;
-    height: 24px;
-    cursor: default;
-    -webkit-app-region: no-drag;
-  }
+.window-control-btn {
+  width: 40px;
+  height: 24px;
+  cursor: default;
+  -webkit-app-region: no-drag;
+}
 
-  .window-control-btn:hover {
-    background-color: #eee;
-  }
+.window-control-btn:hover {
+  background-color: #eee;
+}
 
-  .window-control-btn.close:hover {
-    background-color: rgba(232, 17, 35, 0.9);
-  }
+.window-control-btn.close:hover {
+  background-color: rgba(232, 17, 35, 0.9);
+}
 
-  .window-control-btn.close:hover path {
-    fill: #fff;
-  }
+.window-control-btn.close:hover path {
+  fill: #fff;
+}
 </style>

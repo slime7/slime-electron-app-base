@@ -1,8 +1,12 @@
-const DEVTOOLS = 'devtools';
-const APP_MAXIMIZE = 'app-maximize';
-const APP_UNMAXIMIZE = 'app-unmaximize';
-const APP_MINIMIZE = 'app-minimize';
-const APP_CLOSE = 'app-close';
+import {
+  DEVTOOLS,
+  APP_MAXIMIZE,
+  APP_UNMAXIMIZE,
+  APP_MINIMIZE,
+  APP_CLOSE,
+  APP_VERSIONS,
+} from '@/utils/ipcConstant';
+import pkg from '../../package.json';
 
 const ipcHandler = (ipc) => ({
   [DEVTOOLS]() {
@@ -30,6 +34,16 @@ const ipcHandler = (ipc) => ({
       global.win.webContents.closeDevTools();
       global.win.close();
     }
+  },
+  [APP_VERSIONS]() {
+    const versions = {
+      app: pkg.version,
+      electron: process.versions.electron,
+      chrome: process.versions.chrome,
+      v8: process.versions.v8,
+      node: process.versions.node,
+    };
+    ipc.sendToClient(APP_VERSIONS, versions);
   },
   ping() {
     ipc.sendToClient('ping', 'pong');
