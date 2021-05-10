@@ -59,6 +59,7 @@ function createWindow() {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See https://github.com/nklayman/vue-cli-plugin-electron-builder/blob/v2/docs/guide/configuration.md#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
     },
   });
   global.win = win;

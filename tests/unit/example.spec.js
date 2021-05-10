@@ -1,6 +1,7 @@
 import Vuetify from 'vuetify';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import WindowControls from '@/components/WindowControls.vue';
+// eslint-disable-next-line import/extensions,import/no-unresolved
+import WindowControls from '@/components/WindowControls';
 
 describe('WindowControls.vue', () => {
   let localVue;
