@@ -24,6 +24,7 @@ module.exports = {
           ],
         },
       },
+      mainProcessFile: 'src/background/index.js',
     },
   },
 };

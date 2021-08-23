@@ -1,4 +1,4 @@
-import ipcHandler from './utils/ipcHandler';
+import ipcHandler from '../utils/ipcHandler';
 
 export default class Ipc {
   constructor(listener, sender) {
@@ -19,7 +19,6 @@ export default class Ipc {
   addListener(chanel, cb) {
     this.listener.on(chanel, cb);
   }
-
 
   sendMsg(chanel, msgBody) {
     this.sender.send(chanel, msgBody);
