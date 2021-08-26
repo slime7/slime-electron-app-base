@@ -16,7 +16,7 @@
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
-  "main": "background/index.js",
+  "main": "background.js",
   "dependencies": {
     "@mdi/font": "^5.9.55",
     "electron-store": "^8.0.0",
